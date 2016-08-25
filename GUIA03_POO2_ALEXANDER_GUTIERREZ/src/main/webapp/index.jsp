@@ -22,7 +22,8 @@
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo right">GUIA 3 - POO2</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="Accesos.jsp">Accesos</a></li>                    
+                    <li><a href="Accesos.jsp">Accesos</a></li>
+                    <li><a href="Documentos.jsp">Documentos</a></li>
                 </ul>
             </div>
         </nav>

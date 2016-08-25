@@ -23,8 +23,8 @@
             <div class="nav-wrapper">
                 <a href="index.jsp" class="brand-logo right">GUIA 3 - POO2</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="#">Accesos</a></li>
-                    <li><a href="Documentos.jsp">Documentos</a></li>
+                    <li><a href="Accesos.jsp">Accesos</a></li>
+                    <li><a href="#">Documentos</a></li>
                 </ul>
             </div>
         </nav>
@@ -33,13 +33,13 @@
         <br/>
         <br/>
         <div class="container">
-            <center><h2 class="teal-text text-lighten-2">Mantenimiento de accesos</h2></center>
+            <center><h2 class="teal-text text-lighten-2">Mantenimiento de documentos</h2></center>
             <br/>
             <center><h3 class="teal-text text-lighten-2">${mensAlert}</h3></center>
             <br/>
             <div class="row">
-                <form name="DatosForm" method="POST" action="AcceServ" class="col s12">                    
-                    <input type="hidden" name="codiAcce" value="${codiAcce}"/>
+                <form name="DatosForm" method="POST" action="DocuServ" class="col s12">                    
+                    <input type="hidden" name="codiDocu" value="${codiDocu}"/>
                     <div class="input-field col s12">
                         <input name="Nombre" type="text" class="validate" value="${Nombre}" required>
                         <label for="Nombre">Nombre</label>
@@ -65,8 +65,8 @@
                         <br/>
                     </div>
                 </form>
-                <form name="TablaForm" method="POST" action="AcceServ" class="col s12">
-                    <jsp:useBean id="beanLugaAcceCtrl" class="com.sv.udb.controlador.LugaAcceCtrl" scope="page"/>
+                <form name="TablaForm" method="POST" action="DocuServ" class="col s12">
+                    <jsp:useBean id="beanTipoDocuCtrl" class="com.sv.udb.controlador.TipoDocuCtrl" scope="page"/>
                     <table border="1" class="striped">
                         <thead>
                             <tr>
@@ -75,10 +75,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${beanLugaAcceCtrl.consTodo()}" var="fila">
+                            <c:forEach items="${beanTipoDocuCtrl.consTodo()}" var="fila">
                                 <tr>
-                                    <td><c:out value="${fila.nombLugaAcce}"></c:out></td>
-                                    <td><p><input id="${fila.codiLugaAcce}" type="radio" name="codiAcceRadi" value="${fila.codiLugaAcce}"/><label for="${fila.codiLugaAcce}"></label></p></td>
+                                    <td><c:out value="${fila.nombTipoDocu}"></c:out></td>
+                                    <td><p><input id="${fila.codiTipoDocu}" type="radio" name="codiDocuRadi" value="${fila.codiTipoDocu}"/><label for="${fila.codiTipoDocu}"></label></p></td>
                                 </tr>
                             </c:forEach>
                         </tbody>

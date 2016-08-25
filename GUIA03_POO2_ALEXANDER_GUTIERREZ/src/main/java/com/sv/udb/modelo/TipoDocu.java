@@ -58,6 +58,14 @@ public class TipoDocu implements Serializable {
     public TipoDocu() {
     }
 
+    public TipoDocu(Long codiTipoDocu, String nombTipoDocu, Date fechAlta, Date fechBaja, byte[] esta) {
+        this.codiTipoDocu = codiTipoDocu;
+        this.nombTipoDocu = nombTipoDocu;
+        this.fechAlta = fechAlta;
+        this.fechBaja = fechBaja;
+        this.esta = esta;
+    }
+
     public TipoDocu(Long codiTipoDocu) {
         this.codiTipoDocu = codiTipoDocu;
     }

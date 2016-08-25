@@ -6,10 +6,16 @@
 package com.sv.udb.controlador;
 
 import com.sv.udb.modelo.LugaAcce;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 /**
  *
@@ -22,6 +28,7 @@ public class LugaAcceCtrl {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction et = em.getTransaction();
+        et.begin();
         try {
             em.persist(obje);
             et.commit();
@@ -30,6 +37,41 @@ public class LugaAcceCtrl {
             et.rollback();
             ex.printStackTrace();
         }
+        return resp;
+    }
+
+    public List<LugaAcce> consTodo() {
+        List<LugaAcce> resp = new ArrayList<>();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
+        try {
+            final CriteriaBuilder cb = em.getCriteriaBuilder();
+            final CriteriaQuery<LugaAcce> q = cb.createQuery(LugaAcce.class);
+            final Root<LugaAcce> Acce = q.from(LugaAcce.class);
+            q.select(Acce);
+            List<LugaAcce> result = em.createQuery(q).getResultList();
+            for (LugaAcce l : result) {
+                resp.add(new LugaAcce(l.getCodiLugaAcce(), l.getNombLugaAcce(), l.getFechAlta(), l.getFechBaja(), l.getEsta()));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return resp;
+    }
+    public LugaAcce cons(int idAcce){
+        LugaAcce resp = null;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
+        try{
+            TypedQuery<LugaAcce> query = em.createNamedQuery("LugaAcce.findByCodiLugaAcce", LugaAcce.class);
+            query.setParameter("codiLugaAcce", idAcce);
+            List<LugaAcce> result = query.getResultList();
+            for (LugaAcce l : result) {
+                resp = new LugaAcce(l.getCodiLugaAcce(), l.getNombLugaAcce(), l.getFechAlta(), l.getFechBaja(), l.getEsta());
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }        
         return resp;
     }
 }

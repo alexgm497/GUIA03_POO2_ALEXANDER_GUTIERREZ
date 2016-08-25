@@ -65,7 +65,36 @@
                         <br/>
                     </div>
                 </form>
+                <form name="TablaForm" method="POST" action="AcceServ" class="col s12">
+                    <jsp:useBean id="beanLugaAcceCtrl" class="com.sv.udb.controlador.LugaAcceCtrl" scope="page"/>
+                    <table border="1" class="striped">
+                        <thead>
+                            <tr>
+                                <th class="card-panel teal lighten-2">Nombre</th>
+                                <th class="card-panel teal lighten-2">--</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${beanLugaAcceCtrl.consTodo()}" var="fila">
+                                <tr>
+                                    <td><c:out value="${fila.nombLugaAcce}"></c:out></td>
+                                    <td><p><input id="${fila.codiLugaAcce}" type="radio" name="codiAcceRadi" value="${fila.codiLugaAcce}"/><label for="${fila.codiLugaAcce}"></label></p></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <div class="col s12">
+                        <center>
+                            <input class="btn waves-effect waves-light" type="submit" name="cursBton" value="Consultar"/>
+                        </center>
+                    </div>
+                    <br/>
+                </form>
             </div>
         </div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/materialize.js"></script>
     </body>
 </html>

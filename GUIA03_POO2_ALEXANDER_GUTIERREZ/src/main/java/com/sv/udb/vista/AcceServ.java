@@ -62,25 +62,19 @@ public class AcceServ extends HttpServlet {
                     request.getRequestDispatcher("/Accesos.jsp").forward(request, response);
                     break;
                 }
-                /*case "Consultar": {
-                 int codiPers = Integer.parseInt(request.getParameter("codiPersRadi") == null ? "0" : request.getParameter("codiPersRadi"));
-                 Personas obje = new PersonasCtrl().cons(codiPers);
-                 if (obje != null) {
-                 request.setAttribute("codiPers", obje.getIdPers());
-                 request.setAttribute("Nombre", obje.getNombPers());
-                 request.setAttribute("Apellidos", obje.getApelPers());
-                 request.setAttribute("Naci", obje.getFechNaci());
-                 request.setAttribute("DUI", obje.getDui());
-                 request.setAttribute("NIT", obje.getNit());
-                 request.setAttribute("TipoSang", obje.getTipoSangre());
-                 request.setAttribute("cmbGene", obje.getGenePers());
-                 request.setAttribute("opConsulta", 1);
-                 }
-                 request.setAttribute("mensAlert", mens);
-                 request.getRequestDispatcher("/Accesos.jsp").forward(request, response);
-                 break;
-                 }
-                 case "Modificar": {
+                case "Consultar": {
+                    int codiAcce = Integer.parseInt(request.getParameter("codiAcceRadi") == null ? "0" : request.getParameter("codiAcceRadi"));
+                    LugaAcce obje = new LugaAcceCtrl().cons(codiAcce);
+                    if (obje != null) {
+                        request.setAttribute("codiAcce", obje.getCodiLugaAcce());
+                        request.setAttribute("Nombre", obje.getNombLugaAcce());
+                        request.setAttribute("opConsulta", 1);
+                    }
+                    request.setAttribute("mensAlert", mens);
+                    request.getRequestDispatcher("/Accesos.jsp").forward(request, response);
+                    break;
+                }
+                /*case "Modificar": {
                  String valor = request.getParameter("codiPers");
                  if (!valor.equals("")) {
                  Personas obje = new Personas();

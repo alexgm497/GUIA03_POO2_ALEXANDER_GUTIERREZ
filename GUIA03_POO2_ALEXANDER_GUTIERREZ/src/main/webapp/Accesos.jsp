@@ -25,6 +25,7 @@
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="#">Accesos</a></li>
                     <li><a href="Documentos.jsp">Documentos</a></li>
+                    <li><a href="Gafetes.jsp">Gafetes</a></li>
                 </ul>
             </div>
         </nav>

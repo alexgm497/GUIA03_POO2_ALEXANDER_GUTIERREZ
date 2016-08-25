@@ -24,9 +24,10 @@
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="Accesos.jsp">Accesos</a></li>
                     <li><a href="Documentos.jsp">Documentos</a></li>
+                    <li><a href="Gafetes.jsp">Gafetes</a></li>
                 </ul>
             </div>
         </nav>
-        <img class="responsive-img" src="img/java.jpg">
+        <img class="responsive-img" src="img/Java.jpg">
     </body>
 </html>

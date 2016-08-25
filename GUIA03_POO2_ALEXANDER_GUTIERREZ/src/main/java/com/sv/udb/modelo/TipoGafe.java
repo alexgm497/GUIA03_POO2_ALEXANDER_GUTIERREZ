@@ -58,6 +58,14 @@ public class TipoGafe implements Serializable {
     public TipoGafe() {
     }
 
+    public TipoGafe(Long codiTipoGafe, String nombTipoGafe, Date fechAlta, Date fechBaja, byte[] esta) {
+        this.codiTipoGafe = codiTipoGafe;
+        this.nombTipoGafe = nombTipoGafe;
+        this.fechAlta = fechAlta;
+        this.fechBaja = fechBaja;
+        this.esta = esta;
+    }
+
     public TipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }

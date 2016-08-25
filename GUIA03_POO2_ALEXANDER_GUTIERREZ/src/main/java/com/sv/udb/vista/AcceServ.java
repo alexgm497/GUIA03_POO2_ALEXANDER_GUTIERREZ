@@ -74,47 +74,33 @@ public class AcceServ extends HttpServlet {
                     request.getRequestDispatcher("/Accesos.jsp").forward(request, response);
                     break;
                 }
-                /*case "Modificar": {
-                 String valor = request.getParameter("codiPers");
-                 if (!valor.equals("")) {
-                 Personas obje = new Personas();
-                 obje.setIdPers(Integer.parseInt(request.getParameter("codiPers")));
-                 obje.setNombPers(request.getParameter("Nombre"));
-                 obje.setApelPers(request.getParameter("Apellidos"));
-                 obje.setIdTipo(Integer.parseInt(request.getParameter("cmbTipo")));
-                 obje.setIdDirec(Integer.parseInt(request.getParameter("cmbDirec")));
-                 InputStream Foto = null;
-                 Part filePart = request.getPart("Foto");
-                 if (filePart != null) {
-                 Foto = filePart.getInputStream();
-                 }
-                 Date ahora = new Date();
-                 Calendar Calendario = new GregorianCalendar();
-                 String FechaAlta = ahora.getDate() + "-" + (ahora.getMonth() + 1) + "-" + (ahora.getYear() + 1900) + " " + Calendario.get(Calendar.HOUR_OF_DAY) + ":" + Calendario.get(Calendar.MINUTE) + ":" + Calendario.get(Calendar.SECOND);
-                 mens = new PersonasCtrl().actu(obje, Foto, FechaAlta) ? "Datos modificados." : "Datos NO modificados.";
-                 } else {
-                 mens = "Seleccione un dato.";
-                 }
-                 request.setAttribute("mensAlert", mens);
-                 request.getRequestDispatcher("/Accesos.jsp").forward(request, response);
-                 break;
-                 }
-                 case "Eliminar": {
-                 String valor = request.getParameter("codiPers");
-                 if (!valor.equals("")) {
-                 Personas obje = new Personas();
-                 obje.setIdPers(Integer.parseInt(request.getParameter("codiPers")));
-                 Date ahora = new Date();
-                 Calendar Calendario = new GregorianCalendar();
-                 String FechaBaja = ahora.getDate() + "-" + (ahora.getMonth() + 1) + "-" + (ahora.getYear() + 1900) + " " + Calendario.get(Calendar.HOUR_OF_DAY) + ":" + Calendario.get(Calendar.MINUTE) + ":" + Calendario.get(Calendar.SECOND);
-                 mens = new PersonasCtrl().elim(obje, FechaBaja) ? "Datos eliminados." : "Datos NO eliminados.";
-                 } else {
-                 mens = "Seleccione un dato.";
-                 }
-                 request.setAttribute("mensAlert", mens);
-                 request.getRequestDispatcher("/Accesos.jsp").forward(request, response);
-                 break;
-                 }*/
+                case "Modificar": {
+                    String valor = request.getParameter("codiAcce");
+                    if (!valor.equals("")) {
+                        LugaAcce obje = new LugaAcce();
+                        obje.setCodiLugaAcce(Long.parseLong(request.getParameter("codiAcce")));
+                        obje.setNombLugaAcce(request.getParameter("Nombre"));
+                        mens = new LugaAcceCtrl().actu(obje) ? "Datos modificados." : "Datos NO modificados.";
+                    } else {
+                        mens = "Seleccione un dato.";
+                    }
+                    request.setAttribute("mensAlert", mens);
+                    request.getRequestDispatcher("/Accesos.jsp").forward(request, response);
+                    break;
+                }
+                case "Eliminar": {
+                    String valor = request.getParameter("codiAcce");
+                    if (!valor.equals("")) {
+                        LugaAcce obje = new LugaAcce();
+                        obje.setCodiLugaAcce(Long.parseLong(request.getParameter("codiAcce")));                        
+                        mens = new LugaAcceCtrl().elim(obje) ? "Datos eliminados." : "Datos NO eliminados.";
+                    } else {
+                        mens = "Seleccione un dato.";
+                    }
+                    request.setAttribute("mensAlert", mens);
+                    request.getRequestDispatcher("/Accesos.jsp").forward(request, response);
+                    break;
+                }                  
                 case "Cancelar": {
                     request.getRequestDispatcher("/Accesos.jsp").forward(request, response);
                     break;

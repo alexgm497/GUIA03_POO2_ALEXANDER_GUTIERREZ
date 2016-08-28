@@ -18,11 +18,17 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 /**
- *
+ * Esta clase se encuentran los metodos para el manejo de los datos (CRUD) del objeto TipoGafe
  * @author Alexander José
+ * @version 1.0
  */
 public class TipoGafeCtrl {
 
+    /**
+     * Metodo para guardar los datos ingresados por el usuario
+     * @param obje Objeto TipoGafe
+     * @return boolean con el resultado de la ejecución
+     */
     public boolean guar(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -42,6 +48,10 @@ public class TipoGafeCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para consultar todos los tipos de gafete existentes
+     * @return List con los datos encontrados por la consulta
+     */
     public List<TipoGafe> consTodo() {
         List<TipoGafe> resp = new ArrayList<>();
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -63,6 +73,11 @@ public class TipoGafeCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para consultar el tipo de gafete seleccionado
+     * @param idGafe Id del tipo del tipo de gafete a buscar
+     * @return Objeto TipoGafe
+     */
     public TipoGafe cons(int idGafe) {
         TipoGafe resp = null;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -82,6 +97,11 @@ public class TipoGafeCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para actualizar los datos del registro
+     * @param obje objeto TipoGafe
+     * @return boolean con el resultado de la ejecución
+     */
     public boolean actu(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -100,6 +120,11 @@ public class TipoGafeCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para eliminar un registro
+     * @param obje Objeto TipoGafe
+     * @return boolean con el resultado de la ejecución
+     */
     public boolean elim(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");

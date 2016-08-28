@@ -18,11 +18,17 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 /**
- *
+ * Esta clase se encuentran los metodos para el manejo de los datos (CRUD) del objeto TipoDocu
  * @author Alexander José
+ * @version 1.0
  */
 public class TipoDocuCtrl {
 
+    /**
+     * Metodo para guardar los datos ingresados por el usuario
+     * @param obje Objeto TipoDocu
+     * @return boolean con el resultado de la ejecución
+     */
     public boolean guar(TipoDocu obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -42,6 +48,10 @@ public class TipoDocuCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para consultar todos los tipos de documentos existentes
+     * @return List con los datos encontrados por la consulta
+     */
     public List<TipoDocu> consTodo() {
         List<TipoDocu> resp = new ArrayList<>();
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -63,6 +73,11 @@ public class TipoDocuCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para consultar el tipo de documento seleccionado
+     * @param idDocu Id del tipo de documento a buscar
+     * @return Objeto TipoDocu
+     */
     public TipoDocu cons(int idDocu) {
         TipoDocu resp = null;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -82,6 +97,11 @@ public class TipoDocuCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para actualizar los datos del registro
+     * @param obje Objeto TipoDocu
+     * @return boolean con el resultado de la ejecución
+     */
     public boolean actu(TipoDocu obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -100,6 +120,11 @@ public class TipoDocuCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para eliminar un registro
+     * @param obje Objeto TipoDocu
+     * @return boolean con el resultado de la ejecución
+     */
     public boolean elim(TipoDocu obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");

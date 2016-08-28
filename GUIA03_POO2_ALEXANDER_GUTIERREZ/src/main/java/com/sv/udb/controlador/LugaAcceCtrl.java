@@ -18,11 +18,17 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 /**
- *
+ * Esta clase se encuentran los metodos para el manejo de los datos (CRUD) del objeto LugaAcce
  * @author Alexander José
+ * @version 1.0
  */
 public class LugaAcceCtrl {
 
+    /**
+     * Metodo para guardar los datos ingresados por el usuario
+     * @param obje Objeto LugaAcce
+     * @return boolean con el resultado de la ejecución
+     */
     public boolean guar(LugaAcce obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -42,11 +48,15 @@ public class LugaAcceCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para consultar todos los lugares de acceso existentes
+     * @return List con los datos encontrados por la consulta
+     */
     public List<LugaAcce> consTodo() {
         List<LugaAcce> resp = new ArrayList<>();
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
-        try {
+        try {            
             final CriteriaBuilder cb = em.getCriteriaBuilder();
             final CriteriaQuery<LugaAcce> q = cb.createQuery(LugaAcce.class);
             final Root<LugaAcce> Acce = q.from(LugaAcce.class);
@@ -63,6 +73,11 @@ public class LugaAcceCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para consultar el lugar de acceso seleccionado
+     * @param idAcce Id del tipo del lugar de acceso a buscar
+     * @return Objeto TipoDocu
+     */
     public LugaAcce cons(int idAcce) {
         LugaAcce resp = null;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -82,6 +97,11 @@ public class LugaAcceCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para actualizar los datos del registro
+     * @param obje Objeto LugaAcce
+     * @return boolean con el resultado de la ejecución
+     */
     public boolean actu(LugaAcce obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -100,6 +120,11 @@ public class LugaAcceCtrl {
         return resp;
     }
 
+    /**
+     * Metodo para eliminar un registro
+     * @param obje Objeto LugaAcce
+     * @return boolean con el resultado de la ejecución
+     */
     public boolean elim(LugaAcce obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
